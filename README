@@ -1,4 +1,5 @@
 Fasta-uShuffle is a wrapper for uShuffle.
+=========================================
 
 uShuffle is:
   uShuffle: A useful tool for shuffling biological sequences while preserving the k-let counts
@@ -9,6 +10,71 @@ uShuffle is:
 uShuffle software is available at:
   http://digital.cs.usu.edu/~mjiang/ushuffle/
 
+
+Installation
+============
+download the code, then run "make":
+  $ git clone git://github.com/agordon/fasta_ushuffle.git
+  $ cd fasta_ushuffle
+  $ make
+
+If needed, copy the executables to your bin directory:
+  $ sudo cp fasta_ushuffle ushuffle /usr/local/bin
+
+
+Usage
+=====
+
+$ ./fasta_ushuffle -h
+fasta_ushuffle: shuffles biological sequences while preserving the k-let counts.
+
+VERSION 0.2
+
+
+Copyright (C) 2010 A. gordon (gordon@cshl.edu).
+
+Uses the uShuffle library code by: Minghui Jiang, James Anderson, Joel Gillespie, and Martin Mayne.
+
+Usage: fasta_ushuffle [-r N] [-h] [-o] [-n N] [-k N] [-s N] < INPUT.FA > OUTPUT.FA
+
+ -h  	This help screen
+ -o            Print original (unshuffled) in output file.
+ -k N		specifies the let size
+ -s N		specifies the seed for random number generator.
+ -n N          For each input sequence, print N permutations (default is 1).
+               Use this only for debugging.
+ -r N          Retry N times to find a new shuffle (Default is 10). After N retries, a warning is printed, and a non-shuffled sequence will be written.
+
+Nucleotide sequences in the input FASTA file must be in a single line.
+This is a valid input file:
+  >dummy1
+  AGTAGTAGTAGTAGTAGTAGTAGTAGTAGTAGAGTG
+  >dummy2
+  CTGAGAGTCACACATGATTTTACAACAACCATGAAG
+
+This is not a valid input file:
+  >dummy1
+  AGTAGTAGTAGTAGTAGTAGTAGTAG
+  TAGTAGAGTG
+  >dummy2
+  CTGAGAGTCACACATGATTTTACAAC
+  AACCATGAAG
+
+Use fasta_formatter (from the FASTX-Toolkit) to re-format a multiline fasta file.
+
+
+Example
+=======
+
+  $ ./fasta_ushuffle < test1.fa
+  >hello
+  ACGGGTTAAACCCGTTNN
+  >world
+  AGAAGTGAGTGTTGAGTAAGTACATTAGA
+
+
+LICENSE
+=======
 
 uShuffle is distributed under the following license:
 /* Copyright (c) 2007
