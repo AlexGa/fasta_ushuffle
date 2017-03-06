@@ -107,11 +107,31 @@ bool is_valid_nucleotide_string(const char *s)
 		case 'C':
 		case 'G':
 		case 'T':
+		case 'R':
+		case 'Y':
+		case 'S':
+		case 'W':
+		case 'K':
+		case 'M':
+		case 'B':
+		case 'D':
+		case 'H':
+		case 'V':
 		case 'N':
 		case 'a':
 		case 'c':
 		case 'g':
 		case 't':
+		case 'r':
+		case 'y':
+		case 's':
+		case 'w':
+		case 'k':
+		case 'm':
+		case 'b':
+		case 'd':
+		case 'h':
+		case 'v':
 		case 'n':
 			break;
 
